@@ -14,10 +14,10 @@ def html_to_markdown(html):
     return converter.handle(html)
 
 
-def fetch_article_urls(database_id, notion_api_key):
+def fetch_article_urls(database_id, NOTION_SECRET):
     url = f"{DATABASE_URL}{database_id}/query"
     headers = {
-        "Authorization": f"Bearer {notion_api_key}",
+        "Authorization": f"Bearer {NOTION_SECRET}",
         "Notion-Version": NOTION_VERSION,
         "Content-Type": "application/json"
     }
@@ -42,10 +42,10 @@ def fetch_article_urls(database_id, notion_api_key):
         start_cursor = data.get("next_cursor", None)
     return links
 
-def insert_article(database_id, article, notion_api_key, emoji):
+def insert_article(database_id, article, NOTION_SECRET, emoji):
     headers = {
         "Accept": "application/json",
-        'Authorization': f'Bearer {notion_api_key}',
+        'Authorization': f'Bearer {NOTION_SECRET}',
         'Notion-Version': NOTION_VERSION,
         'Content-Type': 'application/json',
     }
@@ -94,6 +94,6 @@ def insert_article(database_id, article, notion_api_key, emoji):
     if response.status_code != 200:
         if "emoji" in response.text:
             print("Emoji not supported, retrying with default emoji...")
-            return insert_article(database_id, article, notion_api_key, DEFAULT_EMOJI)
+            return insert_article(database_id, article, NOTION_SECRET, DEFAULT_EMOJI)
         raise requests.exceptions.HTTPError(f'Failed to create page: {response.text}')
     print(f"Article '{article.get('title')}' inserted successfully.")
