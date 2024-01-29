@@ -2,12 +2,11 @@ import zenn_api
 import notion_api
 import config
 
-ZENN_SESSION = config.ZENN_SESSION
-REMEMBER_TOKEN = config.REMEMBER_TOKEN
+REMEMBER_USER_TOKEN = config.REMEMBER_USER_TOKEN
 NOTION_DATABASE_ID = config.NOTION_DATABASE_ID
 NOTION_API_KEY = config.NOTION_API_KEY
 
-cookie = f"_zenn_session={ZENN_SESSION}; remember_user_token={REMEMBER_TOKEN}"
+cookie = f"remember_user_token={REMEMBER_USER_TOKEN}"
 
 old_likes_urls = notion_api.fetch_article_urls(NOTION_DATABASE_ID, NOTION_API_KEY)
 print(f"Found {len(old_likes_urls)} articles in Notion database.")

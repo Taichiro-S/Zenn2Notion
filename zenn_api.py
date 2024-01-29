@@ -32,7 +32,7 @@ def fetch_likes(cookie, urls):
         params = {"page": page}
         response = requests.get(LIKES_URL, headers=headers, params=params, timeout=TIMEOUT) 
         if response.status_code != 200:
-            print(f"Error: Unable to fetch data. Message: {response.message}")
+            print(f"Error: Unable to fetch data. Message: {response.text}")
             break
         data = response.json()
         articles = data.get("items", [])
