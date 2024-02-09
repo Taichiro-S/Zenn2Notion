@@ -13,7 +13,7 @@ python 3.11.1
 [Notion](https://www.notion.so/)のアカウントを作成しておいてください
 このリポジトリをクローンし、以下コマンドでvenvを使用して実行環境を作成してください。
 
-`python venv -m .venv`
+`python -m venv .venv`
 `source .venv/bin/activate`
 `pip install -r requirements.txt`
 

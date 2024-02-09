@@ -8,6 +8,7 @@ NOTION_SECRET = config.NOTION_SECRET
 
 cookie = f"remember_user_token={REMEMBER_USER_TOKEN}"
 
+print("Fetching saved reading books from Notion database...")
 old_books_urls = notion_api.fetch_urls(NOTION_DATABASE_ID_FOR_BOOKS, NOTION_SECRET)
 print(f"Found {len(old_books_urls)} books in Notion database.")
 

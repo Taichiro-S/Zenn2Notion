@@ -8,6 +8,7 @@ NOTION_SECRET = config.NOTION_SECRET
 
 cookie = f"remember_user_token={REMEMBER_USER_TOKEN}"
 
+print("Fetching saved likes from Notion database...")
 old_likes_urls = notion_api.fetch_urls(NOTION_DATABASE_ID_FOR_LIKES, NOTION_SECRET)
 print(f"Found {len(old_likes_urls)} articles in Notion database.")
 
