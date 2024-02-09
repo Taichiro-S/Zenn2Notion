@@ -21,7 +21,6 @@ def fetch_urls(database_id, notion_secret):
         "Notion-Version": NOTION_VERSION,
         "Content-Type": "application/json"
     }
-    print(url)
 
     links = []
     has_more = True
