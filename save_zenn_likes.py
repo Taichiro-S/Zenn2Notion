@@ -16,4 +16,6 @@ print(f"Found {len(new_likes)} new articles in Zenn likes.")
 
 for i, article in enumerate(new_likes):
     print(f"Inserting article {i+1}...")
-    notion_api.insert_article(NOTION_DATABASE_ID_FOR_LIKES, article, NOTION_SECRET, article.get("emoji"))
+    notion_api.insert_article(
+        NOTION_DATABASE_ID_FOR_LIKES, article, NOTION_SECRET, article.get("emoji")
+    )
